@@ -1,5 +1,9 @@
 {
-  "index": "Introduction",
+  "index": {
+    "title": "Introduction",
+    "type": "page",
+    "hidden": true
+  },
   "get-started": "Get Started",
   "features": "Features",
   "themes": "Themes",
