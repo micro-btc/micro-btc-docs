@@ -5,13 +5,13 @@ import { useConfig } from 'nextra-theme-docs'
  * @type {import('nextra-theme-docs').DocsThemeConfig}
  */
 export default {
-  banner: {
+  /*banner: {
     key: 'Nextra 2',
     text: 'Nextra 2 Alpha'
   },
   chat: {
     link: 'https://discord.gg/hEM84NMkRv' // Next.js discord server,
-  },
+  },*/
   docsRepositoryBase:
     'https://github.com/shuding/nextra/blob/core/examples/docs',
   editLink: {
