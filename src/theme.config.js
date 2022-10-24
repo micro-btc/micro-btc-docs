@@ -5,6 +5,19 @@ import { useConfig } from 'nextra-theme-docs'
  * @type {import('nextra-theme-docs').DocsThemeConfig}
  */
 export default {
+  project: {
+    link: 'https://github.com/micro-btc/microbtc-docs'
+  },
+  logo: <strong>micro-btc</strong>,
+  titleSuffix: ' - micro-btc',
+  sidebar: {
+    defaultMenuCollapsed: true,
+  },
+  footer: {
+    content: <span>
+      MIT ${new Date().getFullYear()} © <a href="https://microbtc.dev" target="_blank">micro-btc</a>.
+    </span>,
+  },
   /*banner: {
     key: 'Nextra 2',
     text: 'Nextra 2 Alpha'
