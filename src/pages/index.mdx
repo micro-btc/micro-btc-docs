@@ -1,11 +1,49 @@
-import { Bleed } from 'nextra-theme-docs'
+import Bleed from 'nextra-theme-docs/bleed'
+import { Logo } from '../components/logo'
 
-# Introduction
+{
+<h1 className="text-center font-extrabold md:text-5xl mt-8">
+  <span style={{display: 'flex', alignItems:'center', justifyContent:'center', flexDirection: 'column'}}>
+    <Logo size='64' />
+      <span>microbtc</span>
+  </span>
+</h1>
+}
 
-**Nextra** is a [Next.js](https://nextjs.org) based static site generator.
+`microbtc` is a minimal JS library for Bitcoin
 
-It supports Markdown and React components ([MDX](/features/mdx)), automatically generated [sidebar and anchor links](/get-started#sidebar-and-anchor-links), file-system based routing, built-in syntax highlighting, image optimization, custom layouts, i18n, and all the features you love about Next.js.
+## Features
 
-Here's what you will get in 1 minute:
+- Payments
+  - P2PK Pay To Public Key
+  - P2PKH Public Key Hash
+  - P2WPKH Witness Public Key Hash
+  - P2SH Script Hash
+  - P2WSH Witness Script Hash
+  - P2SH-P2WSH
+  - P2MS classic multisig
+  - P2TR Taproot
+  - P2TR-NS Taproot multisig
+  - P2TR-MS Taproot M-of-N multisig
+- Transaction
+  - Encode/decode
+  - Inputs
+  - Outputs
+  - Basic transaction sign
+  - BIP174 PSBT multi-sig example
+- Utils
+  - getAddress
+  - Script
+  - OutScript
 
-<Bleed>![Nextra Example](/demo.png)</Bleed>
+## Community
+
+<p className="flex h-6">
+  <img
+    alt="stars"
+    src="https://badgen.net/github/stars/micro-btc/microbtc-docs"
+    className="inline-block mr-2"
+  />
+</p>
+
+`micro-stacks` is created and maintained by [Paul Miller](https://github.com/paulmillr), [Fungible Systems](https://fungible.systems), and [Ryan Shea](https://github.com/shea256).
