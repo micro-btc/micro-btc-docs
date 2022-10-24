@@ -15,8 +15,8 @@
     "react": "*",
     "react-dom": "*",
     "next": ">=12",
-    "nextra": "workspace:*",
-    "nextra-theme-docs": "workspace:*"
+    "nextra": "2.0.0-beta.36",
+    "nextra-theme-docs": "2.0.0-beta.36"
   },
   "dependenciesMeta": {
     "nextra": {
