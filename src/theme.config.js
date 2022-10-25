@@ -8,25 +8,11 @@ export default {
   project: {
     link: 'https://github.com/micro-btc/microbtc-docs'
   },
-  chat: {
-    icon: <strong></strong>
-  },
   logo: <strong>micro-btc</strong>,
   titleSuffix: ' - micro-btc',
   sidebar: {
     defaultMenuCollapsed: true,
   },
-  footer: {
-    text: <span>MIT {new Date().getFullYear()} © <a href="https://microbtc.dev" target="_blank">Micro BTC</a></span>,
-    content: <span>
-      MIT ${new Date().getFullYear()} © <a href="https://microbtc.dev" target="_blank">micro-btc</a>.
-    </span>,
-  },
-  /*banner: {
-    key: 'Nextra 2',
-    text: 'Nextra 2 Alpha'
-  },*/
-
   docsRepositoryBase:
     'https://github.com/shuding/nextra/blob/core/examples/docs',
   editLink: {
