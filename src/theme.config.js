@@ -20,10 +20,10 @@ export default {
     defaultMenuCollapsed: true,
   },
   footer: {
-    text: <span>MIT {new Date().getFullYear()} © <a href="https://microbtc.dev" target="_blank">Micro BTC</a></span>,
+    text: <span>MIT {new Date().getFullYear()} © <a href="https://github.com/micro-btc" target="_blank">micro-btc</a></span>,
   },
   docsRepositoryBase:
-    'https://github.com/shuding/nextra/blob/core/examples/docs',
+    'https://github.com/micro-btc/micro-btc-docs',
   editLink: {
     text: 'Edit this page on GitHub'
   },
@@ -63,7 +63,7 @@ export default {
       ],
       additionalMetaTags: [
         { content: 'en', httpEquiv: 'Content-Language' },
-        { content: 'Nextra', name: 'apple-mobile-web-app-title' },
+        { content: 'micro-btc', name: 'apple-mobile-web-app-title' },
         { content: '#fff', name: 'msapplication-TileColor' },
         { content: '/ms-icon-144x144.png', name: 'msapplication-TileImage' }
       ],
@@ -77,7 +77,7 @@ export default {
       titleTemplate: '%s – micro-btc',
       twitter: {
         cardType: 'summary_large_image',
-        site: 'https://nextra.vercel.app'
+        site: 'https://www.micro-btc.dev'
       }
     }
   },
