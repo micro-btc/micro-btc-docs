@@ -6,7 +6,7 @@ import { useConfig } from 'nextra-theme-docs'
  */
 export default {
   project: {
-    link: 'https://github.com/micro-btc/microbtc-docs'
+    link: 'https://github.com/paulmillr/micro-btc-signer'
   },
   chat: {
     icon: <strong></strong>
