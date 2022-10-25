@@ -27,6 +27,21 @@ export default {
   editLink: {
     text: 'Edit this page on GitHub'
   },
+  head: ({ locale, title, config, meta }) => {
+    <>
+      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="theme-color" content="#ffffff" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta httpEquiv="Content-Language" content="en" />
+      
+      <meta name="description" content="micro-btc: the minimalist JS Bitcoin library" />
+      <meta property="og:title" content="micro-btc: the minimalist JS Bitcoin library" />
+      <meta property="og:description" content="micro-btc: the minimalist JS Bitcoin library" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="apple-mobile-web-app-title" content="micro-btc" />
+    </>
+  },
   getNextSeoProps() {
     const { frontMatter } = useConfig()
     return {
