@@ -8,7 +8,9 @@ export default {
   project: {
     link: 'https://github.com/paulmillr/micro-btc-signer'
   },
-  search: false,
+  search: {
+    component: null
+  },
   chat: {
     icon: <strong></strong>
   },
@@ -66,7 +68,7 @@ export default {
         { content: '/ms-icon-144x144.png', name: 'msapplication-TileImage' }
       ],
       description:
-        frontMatter.description || 'Nextra: the Next.js site builder',
+        frontMatter.description || 'micro-btc: the minimal JS library for Bitcoin',
       openGraph: {
         images: [
           { url: frontMatter.image || 'https://nextra.vercel.app/og.png' }
