@@ -86,7 +86,7 @@ export default {
         frontMatter.description || 'micro-btc: the minimal JS library for Bitcoin',
       openGraph: {
         images: [
-          { url: frontMatter.image || 'https://nextra.vercel.app/og.png' }
+          { url: frontMatter.image || 'https://www.micro-btc.dev/og.png' }
         ]
       },
       titleTemplate: '%s – micro-btc',
