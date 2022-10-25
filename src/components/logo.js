@@ -1,5 +1,31 @@
 export const Logo = ({ size = 44 }) => {
   return (
+    <svg width={size} height={size} style={{ display: 'block' }}>
+      <rect width={size} height={size} />
+      <text
+      x={size*0.1}
+      y={size*0.85}
+      style={{ fill: 'white', fontSize: '18px', fontFamily: 'sans-serif', fontWeight: 'normal' }}
+      >
+        μBTC
+      </text>
+    </svg>
+  );
+};
+
+/*
+    <svg
+    style={{ display: 'block' }}
+    width={size}
+    height={size}
+    viewBox="0 0 4700 4520"
+    preserveAspectRatio="xMidYMid meet"
+    >
+      <g id="layer1" fill="#000000" stroke="none">
+        <path d="M275 4268 c-3 -7 -4 -897 -3 -1978 l3 -1965 2080 0 2080 0 0 1975 0 1975 -2078 3 c-1657 2 -2079 0 -2082 -10z"/>
+      </g>
+    </svg>
+
     <svg
     style={{ display: 'block' }}
     width={size}
@@ -14,5 +40,4 @@ export const Logo = ({ size = 44 }) => {
       fill="currentColor"
     />
     </svg>
-  );
-};
+*/

@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Soehne';
+    src: url('https://fungible.systems/assets/fonts/soehne-web-buch.woff2') format('woff2'),
+    url('https://fungible.systems/assets/fonts/soehne-web-buch.woff') format('woff');
+    font-weight: regular;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Soehne';
+    src: url('https://fungible.systems/assets/fonts/soehne-web-halbfett.woff2') format('woff2'),
+    url('https://fungible.systems/assets/fonts/soehne-web-halbfett.woff') format('woff');
+    font-weight: bold;
+    font-display: swap;
+    font-style: normal;
+}
+  

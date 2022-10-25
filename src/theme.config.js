@@ -8,6 +8,7 @@ export default {
   project: {
     link: 'https://github.com/paulmillr/micro-btc-signer'
   },
+  search: false,
   chat: {
     icon: <strong></strong>
   },
