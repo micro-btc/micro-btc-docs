@@ -1,11 +1,11 @@
 {
   "index": {
-    "title": "home",
+    "title": "Home",
     "type": "page",
     "hidden": true
   },
   "get-started": {
-    "title": "get started",
+    "title": "Get Started",
     "type": "page",
     "hidden": true
   }

@@ -89,7 +89,7 @@ export default {
           { url: frontMatter.image || 'https://www.micro-btc.dev/og.png' }
         ]
       },
-      titleTemplate: 'micro-btc - %s',
+      titleTemplate: 'Micro-BTC - %s',
       twitter: {
         cardType: 'summary_large_image',
         site: 'https://www.micro-btc.dev'
