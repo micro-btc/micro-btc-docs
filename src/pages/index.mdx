@@ -12,29 +12,37 @@ import { Logo } from '../components/logo'
 
 `micro-btc` is the minimal JavaScript/TypeScript library for Bitcoin.
 
+## Documentation
+
+[Read the docs](/docs/getting-started) to get started.
+
 ## Features
 
-- Payments
-  - P2PK Pay To Public Key
-  - P2PKH Public Key Hash
-  - P2WPKH Witness Public Key Hash
-  - P2SH Script Hash
-  - P2WSH Witness Script Hash
-  - P2SH-P2WSH
-  - P2MS classic multisig
-  - P2TR Taproot
-  - P2TR-NS Taproot multisig
-  - P2TR-MS Taproot M-of-N multisig
-- Transaction
-  - Encode/decode
-  - Inputs
-  - Outputs
-  - Basic transaction sign
-  - BIP174 PSBT multi-sig example
-- Utils
-  - getAddress
-  - Script
-  - OutScript
+### Payments
+
+- Single-Key Addresses
+  - Classic Public Key Hash
+  - SegWit Public Key Hash
+  - Taproot Public Key Hash
+- Multi-Key Addresses
+  - Classic Script Hash
+  - SegWit Script Hash
+  - Taproot Single-Leaf
+  - Taproot Multi-Leaf
+
+### Transactions
+
+- Encoding and Decoding
+- Inputs
+- Outputs
+- Basic transaction signing
+- Signing with PSBT (Partially-Signed Bitcoin Transactions)
+
+### Utilities
+
+- Getting an address
+- Scripts
+- OutScripts
 
 ## About
 

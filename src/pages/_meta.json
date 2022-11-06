@@ -1,12 +1,8 @@
 {
   "index": {
-    "title": "Home",
-    "type": "page",
-    "hidden": true
+    "title": "Home"
   },
-  "get-started": {
-    "title": "Get Started",
-    "type": "page",
-    "hidden": true
+  "docs": {
+    "title": "Docs"
   }
 }

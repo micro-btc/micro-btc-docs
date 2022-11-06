@@ -1,0 +1,70 @@
+# Single-Key Addresses
+
+## Library Imports
+
+```typescript
+import * as btc from 'micro-btc-signer'
+import * as secp from '@noble/secp256k1'
+import * as base from '@scure/base' 
+const toHex = secp.utils.bytesToHex
+```
+
+## Classic Public Key Hash
+
+### Code
+
+```typescript
+const ecdsaPublicKey = base.hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
+const scriptInfo = btc.p2pkh(ecdsaPublicKey)
+const script = toHex(scriptInfo.script)
+const address = scriptInfo.address
+```
+
+### Console
+
+```typescript
+> console.log(script)
+76a914168b992bcfc44050310b3a94bd0771136d0b28d188ac
+> console.log(address)
+134D6gYy8DsR5m4416BnmgASuMBqKvogQh
+```
+
+## SegWit Public Key Hash
+
+### Code
+
+```typescript
+const ecdsaPublicKey = base.hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
+const scriptInfo = btc.p2wpkh(ecdsaPublicKey)
+const script = toHex(scriptInfo.script)
+const address = scriptInfo.address
+```
+
+### Console
+
+```typescript
+> console.log(script)
+0014168b992bcfc44050310b3a94bd0771136d0b28d1
+> console.log(address)
+bc1qz69ej270c3q9qvgt822t6pm3zdksk2x35j2jlm
+```
+
+## Taproot Single Public Key
+
+### Code
+
+```typescript
+const schnorrPublicKey = base.hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
+const scriptInfo = btc.p2tr(schnorrPublicKey)
+const script = toHex(scriptInfo.script)
+const address = scriptInfo.address
+```
+
+### Console
+
+```typescript
+> console.log(script)
+5120f13946c3e43c648a2ec6c7e50ec5ec985a1fa94e1e86b214ebd1b41d66c2522c
+> console.log(address)
+bc1p7yu5dsly83jg5tkxcljsa30vnpdpl22wr6rty98t6x6p6ekz2gkqzf2t2s
+```

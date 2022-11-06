@@ -1,0 +1,25 @@
+# Key Generation
+
+### Library Imports
+
+```typescript
+import * as secp from '@noble/secp256k1'
+```
+
+### Generating a Private Key
+
+```typescript
+const privateKey = secp.utils.randomPrivateKey()
+```
+
+### Deriving an ECDSA Public Key from a Private Key
+
+```typescript
+const ecdsaPublicKey = secp.getPublicKey(privateKey, true)
+```
+
+### Deriving a Schnorr Public Key from a Private Key
+
+```typescript
+const schnorrPublicKey = secp.schnorr.getPublicKey(privateKey)
+```
