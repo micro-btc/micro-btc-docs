@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "next": ">=12",
-    "nextra": "2.0.0-beta.36",
-    "nextra-theme-docs": "2.0.0-beta.36",
+    "nextra": "2.0.0-beta.41",
+    "nextra-theme-docs": "2.0.0-beta.41",
     "react": "*",
     "react-dom": "*"
   },
