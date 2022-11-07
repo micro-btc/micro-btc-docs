@@ -2,8 +2,11 @@
     "getting-started": {
       "title": "Getting Started"
     },
-    "key-generation": {
-      "title": "Key Generation"
+    "key-creation": {
+      "title": "Key Creation"
+    },
+    "address-types": {
+      "title": "Address Types"
     },
     "single-key": {
       "title": "Single-Key Addresses"
@@ -11,8 +14,11 @@
     "multi-key": {
       "title": "Multi-Key Addresses"
     },
-    "taproot-trees": {
-      "title": "Taproot Tree Addresses"
+    "single-script": {
+      "title": "Single-Script Addresses"
+    },
+    "multi-script": {
+      "title": "Multi-Script Addresses"
     }
   }
   

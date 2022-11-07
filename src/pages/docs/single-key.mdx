@@ -4,28 +4,7 @@
 
 ```typescript
 import * as btc from 'micro-btc-signer'
-import * as secp from '@noble/secp256k1'
 import { hex } from '@scure/base' 
-```
-
-## Classic Public Key Hash
-
-### Code
-
-```typescript
-const ecdsaPublicKey = hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
-const scriptInfo = btc.p2pkh(ecdsaPublicKey)
-const script = hex.encode(scriptInfo.script)
-const address = scriptInfo.address
-```
-
-### Console
-
-```typescript
-> console.log(script)
-76a914168b992bcfc44050310b3a94bd0771136d0b28d188ac
-> console.log(address)
-134D6gYy8DsR5m4416BnmgASuMBqKvogQh
 ```
 
 ## SegWit Public Key Hash
@@ -48,13 +27,13 @@ const address = scriptInfo.address
 bc1qz69ej270c3q9qvgt822t6pm3zdksk2x35j2jlm
 ```
 
-## Taproot Public Key
+## Classic Public Key Hash
 
 ### Code
 
 ```typescript
-const schnorrPublicKey = hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
-const scriptInfo = btc.p2tr(schnorrPublicKey)
+const ecdsaPublicKey = hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
+const scriptInfo = btc.p2pkh(ecdsaPublicKey)
 const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
@@ -63,18 +42,18 @@ const address = scriptInfo.address
 
 ```typescript
 > console.log(script)
-5120f13946c3e43c648a2ec6c7e50ec5ec985a1fa94e1e86b214ebd1b41d66c2522c
+76a914168b992bcfc44050310b3a94bd0771136d0b28d188ac
 > console.log(address)
-bc1p7yu5dsly83jg5tkxcljsa30vnpdpl22wr6rty98t6x6p6ekz2gkqzf2t2s
+134D6gYy8DsR5m4416BnmgASuMBqKvogQh
 ```
 
-## Taproot Public Key Hash
+## Taproot Public Key
 
 ### Code
 
 ```typescript
 const schnorrPublicKey = hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
-const scriptInfo = btc.p2tr(undefined, [btc.p2tr_pk(schnorrPublicKey)])
+const scriptInfo = btc.p2tr(schnorrPublicKey)
 const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```

@@ -1,0 +1,32 @@
+# Address Types
+
+## Address Generations
+
+There are three generations of Bitcoin addresses:
+
+1. Classic addresses (Generation 1)
+1. SegWit addresses (Generation 2)
+1. Taproot addresses (Generation 3)
+
+SegWit addresses are currently the standard addresses and those with the widest adoption, so they should be used by default.
+
+Taproot addresses are the newest generation of addresses. They are somewhat experimental and have the greatest benefits and flexibility, so they should be used if you'd like to take advantage of the most cutting edge features of Bitcoin.
+
+Classic addresses are the oldest generation of addresses, and should only be used for backwards compatibility.
+
+## Address Constructions
+
+There are three major constructions of Bitcoin addresses
+
+1. Single-key addresses
+1. Multi-key addresses
+1. Single-script addresses
+1. Multi-script addresses
+
+Single-key addresses are the simplest type of addresses, and authorize a single key to spend money stored in the address.
+
+Multi-key addresses, meanwhile, authorize multiple keys to withdraw from the address and require one or more keys to enable a withdrawal. They are often refered to as M-of-N addresses because they require M keys out of N keys to spend funds. For example, a 2-of-3 address would require two of three keys for spending.
+
+Single-script addresses are pre-Taproot addresses that define a "script" that specifies conditions under which the money stored in the address can be spent. Multi-key addresses are a special case of single-script addresses, where the script specifies that multiple keys must sign for a withdrawal. Other types of single-script addresses can involve time locks, hash locks, or storing data.
+
+Multi-script addresses are enabled by Taproot and are the newest and most advanced form of address. They allow the address creator to specify multiple "scripts" or spend conditions that can be met in order to withdraw funds. Each of these spend conditions can authorize a single key, authorize multiple keys, or have more complex conditions that need to be met.
