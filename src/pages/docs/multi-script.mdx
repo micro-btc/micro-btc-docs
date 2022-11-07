@@ -21,7 +21,7 @@ const keySets = [
 ]
 ```
 
-## Taproot Key & Script Tree: A or (B&C)
+## Taproot Key & Script Tree: A or BC
 
 ### Code
 
@@ -45,19 +45,21 @@ const address = scriptInfo.address
 bc1puyuqeev4dx4u73ttspaqdtwdl45m4d5305hye8svhz47uxm5a07sl7ryvv
 ```
 
-## Taproot Key & Script Tree: A or (B&C) or (D&E)
+## Taproot Key & Script Tree: A or BC or BD or BE or CDE
 
 ### Code
 
 ```typescript
 const leafScriptInfo = [
   btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])[0],
-  btc.p2tr_ns(2, [keySets[3].schnorrPub, keySets[4].schnorrPub])[0]
+  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[3].schnorrPub])[0],
+  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[4].schnorrPub])[0],
+  btc.p2tr_ns(3, [keySets[2].schnorrPub, keySets[3].schnorrPub, keySets[4].schnorrPub])[0],
 ]
 const scriptInfo = btc.p2tr(keySets[0].schnorrPub, leafScriptInfo)
 
 const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
-const script = hex.encode(scriptInfo.script)
+const rootScript = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
 
@@ -66,9 +68,11 @@ const address = scriptInfo.address
 ```typescript
 > leafScripts.map(s => console.log(s))
 202323232323232323232323232323232323232323232323232323232323232323ad203434343434343434343434343434343434343434343434343434343434343434ac
-204545454545454545454545454545454545454545454545454545454545454545ad205656565656565656565656565656565656565656565656565656565656565656ac
-> console.log(script)
-5120d54c0edabe6623b4f301c9d9f872a20a1c236aa8a29c9dcd7107e6ec322af27a
+202323232323232323232323232323232323232323232323232323232323232323ad204545454545454545454545454545454545454545454545454545454545454545ac
+202323232323232323232323232323232323232323232323232323232323232323ad205656565656565656565656565656565656565656565656565656565656565656ac
+203434343434343434343434343434343434343434343434343434343434343434ad204545454545454545454545454545454545454545454545454545454545454545ad205656565656565656565656565656565656565656565656565656565656565656ac
+> console.log(rootScript)
+5120ebbd89271403200c37937847bf3823b5d0e6c7961a681057d06899c97085c933
 > console.log(address)
-bc1p64xqak47vc3mfucpe8vlsu4zpgwzx64g52wfmnt3qlnwcv327faq7lt5fv
+bc1paw7cjfc5qvsqcdun0prm7wprkhgwd3ukrf5pq47sdzvujuy9eyesd24q70
 ```
