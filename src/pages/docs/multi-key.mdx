@@ -130,16 +130,9 @@ bc1pevfcmnkqqq09a4n0fs8c7mwlc6r4efqpvgyqpjvegllavgw235fq3kz7a0
 ### Code
 
 ```typescript
-export const makeTaprootLeafScript = (pubkeys: Uint8Array[]) => {
-  return {
-    type: 'tr_ns',
-    script: btc.OutScript.encode({ type: 'tr_ns', pubkeys: pubkeys })
-  }
-}
-
 const leafScriptInfo = [
-    makeTaprootLeafScript(keySets[0].schnorrPub),
-    makeTaprootLeafScript(keySets[1].schnorrPub, keySets[2].schnorrPub)
+  btc.p2tr_pk(keySets[0].schnorrPub),
+  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])[0]
 ]
 const leafScripts = leafScriptInfo.map(s => toHex(s.script))
 const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
