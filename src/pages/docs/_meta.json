@@ -8,17 +8,17 @@
     "address-types": {
       "title": "Address Types"
     },
-    "single-key": {
-      "title": "Single-Key Addresses"
+    "public-key-hash": {
+      "title": "Public-Key-Hash"
     },
-    "multi-key": {
-      "title": "Multi-Key Addresses"
+    "script-hash": {
+      "title": "Script-Hash"
     },
-    "single-script": {
-      "title": "Single-Script Addresses"
+    "taproot-public-key": {
+      "title": "Taproot-Public-Key"
     },
-    "multi-script": {
-      "title": "Multi-Script Addresses"
+    "taproot-script-tree": {
+      "title": "Taproot Script-Tree"
     }
   }
   

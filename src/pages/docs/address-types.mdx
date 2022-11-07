@@ -16,17 +16,25 @@ Classic addresses are the oldest generation of addresses, and should only be use
 
 ## Address Constructions
 
-There are three major constructions of Bitcoin addresses
+There are several major constructions of Bitcoin addresses:
 
-1. Single-key addresses
-1. Multi-key addresses
-1. Single-script addresses
-1. Multi-script addresses
+1. Public-Key-Hash Addresses
+1. Script-Hash Addresses
+1. Taproot Public-Key Addresses
+1. Taproot Script-Tree Addresses
 
-Single-key addresses are the simplest type of addresses, and authorize a single key to spend money stored in the address.
+Public-key-hash addresses are the simplest type of addresses, and authorize a single key to spend money stored in the address.
 
-Multi-key addresses, meanwhile, authorize multiple keys to withdraw from the address and require one or more keys to enable a withdrawal. They are often refered to as M-of-N addresses because they require M keys out of N keys to spend funds. For example, a 2-of-3 address would require two of three keys for spending.
+Script-hash addresses, meanwhile, define a "script" that specifies conditions under which the money stored in the address can be spent.
+Multi-key addresses (or multisig addresses) are a special case of script-hash addresses, where the script authorizes multiple keys to withdraw from the address and requires one or more keys to withdraw.
+Multi-key addresses are often refered to as M-of-N addresses because they require M keys out of N keys to spend funds.
+For example, a 2-of-3 address would require two of three keys for spending.
+Other types of script-hash addresses can involve time locks, hash locks, or storing data.
 
-Single-script addresses are pre-Taproot addresses that define a "script" that specifies conditions under which the money stored in the address can be spent. Multi-key addresses are a special case of single-script addresses, where the script specifies that multiple keys must sign for a withdrawal. Other types of single-script addresses can involve time locks, hash locks, or storing data.
+Taproot Public-Key Addresses are an upgrade to public-key-hash addresses that is enabled by Taproot.
+Like public-key-hash addresses, they authorize a single key to spend money stored in the address.
+However, they also provide more privacy than public-key-hash addresses because little-to-no information is leaked about the address's security policy.
 
-Multi-script addresses are enabled by Taproot and are the newest and most advanced form of address. They allow the address creator to specify multiple "scripts" or spend conditions that can be met in order to withdraw funds. Each of these spend conditions can authorize a single key, authorize multiple keys, or have more complex conditions that need to be met.
+Taproot Script-Tree Addresses are the most versatile and advanced form of address that takes full advantage of the features of Taproot.
+Script-Tree Addresses allow the address creator to specify multiple spend conditions that can be met in order to withdraw funds.
+Each of these spend conditions can authorize a single key, authorize multiple keys, or have more complex conditions that need to be met.

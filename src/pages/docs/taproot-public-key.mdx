@@ -1,0 +1,23 @@
+# Taproot Public-Key Addresses
+
+## Taproot Public Key
+
+### Code
+
+```typescript
+const schnorrPublicKey = hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
+
+const rootScriptInfo = btc.p2tr(schnorrPublicKey)
+
+const rootScript = hex.encode(rootScriptInfo.script)
+const address = scriptInfo.address
+```
+
+### Console
+
+```typescript
+> console.log(rootScript)
+5120f13946c3e43c648a2ec6c7e50ec5ec985a1fa94e1e86b214ebd1b41d66c2522c
+> console.log(address)
+bc1p7yu5dsly83jg5tkxcljsa30vnpdpl22wr6rty98t6x6p6ekz2gkqzf2t2s
+```

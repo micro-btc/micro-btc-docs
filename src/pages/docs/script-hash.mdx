@@ -1,0 +1,72 @@
+# Script-Hash Addresses
+
+Script-hash Addresses are addresses that specify custom conditions under which funds can be spent from an address.
+The most common form of script-hash addresses are multi-key addresses, or multi-sig addresses.
+Multi-Key addresses specify multiple keys that can spend from the address and require one or more keys to authorize a transfer.
+
+## Library Imports
+
+```typescript
+import * as btc from 'micro-btc-signer'
+import { hex } from '@scure/base' 
+```
+
+## SegWit Script Hash: 2 of \{A, B, C\}
+
+### Code
+
+```typescript
+const keySets = [
+  { pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000001') },
+  { pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000002') },
+  { pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000003') }
+]
+
+const scriptInfo = btc.p2ms(2, keySets.map(keySet => keySet.pub))
+const scriptHashInfo = btc.p2wsh(scriptInfo)
+
+const script = hex.encode(scriptInfo.script)
+const scriptHash = hex.encode(scriptHashInfo.script)
+const address = scriptHashInfo.address
+```
+
+### Console
+
+```typescript
+> console.log(script)
+5221030000000000000000000000000000000000000000000000000000000000000001210300000000000000000000000000000000000000000000000000000000000000022103000000000000000000000000000000000000000000000000000000000000000353ae
+> console.log(scriptHash)
+002074ee2b4ceec10839a489c07d4a538384394681e3dcd88f3ee87a85199908aa5e
+> console.log(address)
+bc1qwnhzkn8wcyyrnfyfcp7555urssu5dq0rmnvg70hg02z3nxgg4f0qljmr2h
+```
+
+## Classic Script Hash: 2 of \{A, B, C\}
+
+### Code
+
+```typescript
+const keySets = [
+  { pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000001') },
+  { pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000002') },
+  { pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000003') }
+]
+
+const scriptInfo = btc.p2ms(2, keySets.map(keySet => keySet.pub))
+const scriptHashInfo = btc.p2sh(scriptInfo)
+
+const script = hex.encode(scriptInfo.script)
+const scriptHash = hex.encode(scriptHashInfo.script)
+const address = scriptHashInfo.address
+```
+
+### Console
+
+```typescript
+> console.log(script)
+5221030000000000000000000000000000000000000000000000000000000000000001210300000000000000000000000000000000000000000000000000000000000000022103000000000000000000000000000000000000000000000000000000000000000353ae
+> console.log(scriptHash)
+a9149d91c6de4eacde72a7cc86bff98d1915b3c7818f87
+> console.log(address)
+3G4AeQtzCLoDAyv2eb3UVTG5atfkyHtuRn
+```

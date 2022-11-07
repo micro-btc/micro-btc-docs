@@ -1,0 +1,113 @@
+# Taproot Script-Tree Addresses
+
+Taproot script-tree addresses are addresses that allow the creator to specify one or more custom spending conditions.
+Each of these conditions is only revealed once it is activated.
+
+## Library Imports
+
+```typescript
+import * as btc from 'micro-btc-signer'
+import { hex } from '@scure/base' 
+```
+
+## Taproot w/ Script Tree: AB or AC or BC
+
+### Code
+
+```typescript
+const keySets = [
+  { schnorrPub: hex.decode('1212121212121212121212121212121212121212121212121212121212121212') },
+  { schnorrPub: hex.decode('2323232323232323232323232323232323232323232323232323232323232323') },
+  { schnorrPub: hex.decode('3434343434343434343434343434343434343434343434343434343434343434') },
+]
+
+const leafScriptInfo = btc.p2tr_ns(2, keySets.map(k => k.schnorrPub))
+const rootScriptInfo = btc.p2tr(undefined, leafScriptInfo)
+
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
+const rootScript = hex.encode(rootScriptInfo.script)
+const address = rootScriptInfo.address
+```
+
+### Console
+
+```typescript
+> leafScripts.map(s => console.log(s))
+201212121212121212121212121212121212121212121212121212121212121212ad202323232323232323232323232323232323232323232323232323232323232323ac
+201212121212121212121212121212121212121212121212121212121212121212ad203434343434343434343434343434343434343434343434343434343434343434ac
+202323232323232323232323232323232323232323232323232323232323232323ad203434343434343434343434343434343434343434343434343434343434343434ac
+> console.log(rootScript)
+5120bb20321c60c3f147176cb13848acb1ba3582985f9edf790c521a46c6d2606222
+> console.log(address)
+bc1phvsry8rqc0c5w9mvkyuy3t93hg6c9xzlnm0hjrzjrfrvd5nqvg3q2p0qn4
+```
+
+## Taproot Key and Script Tree: A or BC
+
+### Code
+
+```typescript
+const keySets = [
+  { schnorrPub: hex.decode('1212121212121212121212121212121212121212121212121212121212121212') },
+  { schnorrPub: hex.decode('2323232323232323232323232323232323232323232323232323232323232323') },
+  { schnorrPub: hex.decode('3434343434343434343434343434343434343434343434343434343434343434') },
+]
+
+const leafScriptInfo = btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])
+const rootScriptInfo = btc.p2tr(keySets[0].schnorrPub, leafScriptInfo)
+
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
+const rootScript = hex.encode(rootScriptInfo.script)
+const address = rootScriptInfo.address
+```
+
+### Console
+
+```typescript
+> leafScripts.map(s => console.log(s))
+202323232323232323232323232323232323232323232323232323232323232323ad203434343434343434343434343434343434343434343434343434343434343434ac
+> console.log(rootScript)
+5120e1380ce59569abcf456b807a06adcdfd69bab6917d2e4c9e0cb8abee1b74ebfd
+> console.log(address)
+bc1puyuqeev4dx4u73ttspaqdtwdl45m4d5305hye8svhz47uxm5a07sl7ryvv
+```
+
+## Taproot Key and Script Tree: A or BC or BD or BE or CDE
+
+### Code
+
+```typescript
+const keySets = [
+  { schnorrPub: hex.decode('1212121212121212121212121212121212121212121212121212121212121212') },
+  { schnorrPub: hex.decode('2323232323232323232323232323232323232323232323232323232323232323') },
+  { schnorrPub: hex.decode('3434343434343434343434343434343434343434343434343434343434343434') },
+  { schnorrPub: hex.decode('4545454545454545454545454545454545454545454545454545454545454545') },
+  { schnorrPub: hex.decode('5656565656565656565656565656565656565656565656565656565656565656') },
+]
+
+const leafScriptInfo = [
+  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])[0],
+  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[3].schnorrPub])[0],
+  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[4].schnorrPub])[0],
+  btc.p2tr_ns(3, [keySets[2].schnorrPub, keySets[3].schnorrPub, keySets[4].schnorrPub])[0],
+]
+const rootScriptInfo = btc.p2tr(keySets[0].schnorrPub, leafScriptInfo)
+
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
+const rootScript = hex.encode(rootScriptInfo.script)
+const address = rootScriptInfo.address
+```
+
+### Console
+
+```typescript
+> leafScripts.map(s => console.log(s))
+202323232323232323232323232323232323232323232323232323232323232323ad203434343434343434343434343434343434343434343434343434343434343434ac
+202323232323232323232323232323232323232323232323232323232323232323ad204545454545454545454545454545454545454545454545454545454545454545ac
+202323232323232323232323232323232323232323232323232323232323232323ad205656565656565656565656565656565656565656565656565656565656565656ac
+203434343434343434343434343434343434343434343434343434343434343434ad204545454545454545454545454545454545454545454545454545454545454545ad205656565656565656565656565656565656565656565656565656565656565656ac
+> console.log(rootScript)
+5120ebbd89271403200c37937847bf3823b5d0e6c7961a681057d06899c97085c933
+> console.log(address)
+bc1paw7cjfc5qvsqcdun0prm7wprkhgwd3ukrf5pq47sdzvujuy9eyesd24q70
+```
