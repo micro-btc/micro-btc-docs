@@ -5,8 +5,7 @@
 ```typescript
 import * as btc from 'micro-btc-signer'
 import * as secp from '@noble/secp256k1'
-import * as base from '@scure/base' 
-const toHex = secp.utils.bytesToHex
+import { hex } from '@scure/base' 
 ```
 
 ## Classic Public Key Hash
@@ -14,9 +13,9 @@ const toHex = secp.utils.bytesToHex
 ### Code
 
 ```typescript
-const ecdsaPublicKey = base.hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
+const ecdsaPublicKey = hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
 const scriptInfo = btc.p2pkh(ecdsaPublicKey)
-const script = toHex(scriptInfo.script)
+const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
 
@@ -34,9 +33,9 @@ const address = scriptInfo.address
 ### Code
 
 ```typescript
-const ecdsaPublicKey = base.hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
+const ecdsaPublicKey = hex.decode('030000000000000000000000000000000000000000000000000000000000000001')
 const scriptInfo = btc.p2wpkh(ecdsaPublicKey)
-const script = toHex(scriptInfo.script)
+const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
 
@@ -54,9 +53,9 @@ bc1qz69ej270c3q9qvgt822t6pm3zdksk2x35j2jlm
 ### Code
 
 ```typescript
-const schnorrPublicKey = base.hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
+const schnorrPublicKey = hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
 const scriptInfo = btc.p2tr(schnorrPublicKey)
-const script = toHex(scriptInfo.script)
+const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
 

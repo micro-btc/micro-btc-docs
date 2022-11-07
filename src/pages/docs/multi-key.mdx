@@ -5,8 +5,7 @@
 ```typescript
 import * as btc from 'micro-btc-signer'
 import * as secp from '@noble/secp256k1'
-import * as base from '@scure/base' 
-const toHex = secp.utils.bytesToHex
+import { hex } from '@scure/base' 
 ```
 
 ## Key Sets for Testing
@@ -14,19 +13,19 @@ const toHex = secp.utils.bytesToHex
 ```typescript
 const keySets = [
   {
-    priv: base.hex.decode('0000000000000000000000000000000000000000000000000000000000000001'),
-    pub: base.hex.decode('030000000000000000000000000000000000000000000000000000000000000001'),
-    schnorrPub: base.hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
+    priv: hex.decode('0000000000000000000000000000000000000000000000000000000000000001'),
+    pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000001'),
+    schnorrPub: hex.decode('0101010101010101010101010101010101010101010101010101010101010101')
   },
   {
-    priv: base.hex.decode('0000000000000000000000000000000000000000000000000000000000000002'),
-    pub: base.hex.decode('030000000000000000000000000000000000000000000000000000000000000002'),
-    schnorrPub: base.hex.decode('0202020202020202020202020202020202020202020202020202020202020202')
+    priv: hex.decode('0000000000000000000000000000000000000000000000000000000000000002'),
+    pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000002'),
+    schnorrPub: hex.decode('0202020202020202020202020202020202020202020202020202020202020202')
   },
   {
-    priv: base.hex.decode('0000000000000000000000000000000000000000000000000000000000000003'),
-    pub: base.hex.decode('030000000000000000000000000000000000000000000000000000000000000003'),
-    schnorrPub: base.hex.decode('1212121212121212121212121212121212121212121212121212121212121212')
+    priv: hex.decode('0000000000000000000000000000000000000000000000000000000000000003'),
+    pub: hex.decode('030000000000000000000000000000000000000000000000000000000000000003'),
+    schnorrPub: hex.decode('1212121212121212121212121212121212121212121212121212121212121212')
   }
 ]
 ```
@@ -38,8 +37,8 @@ const keySets = [
 ```typescript
 const scriptInfo = btc.p2ms(2, keySets.map(keySet => keySet.pub))
 const scriptHashInfo = btc.p2sh(scriptInfo)
-const script = toHex(scriptInfo.script)
-const scriptHash = toHex(scriptHashInfo.script)
+const script = hex.encode(scriptInfo.script)
+const scriptHash = hex.encode(scriptHashInfo.script)
 const address = scriptHashInfo.address
 ```
 
@@ -61,8 +60,8 @@ a9149d91c6de4eacde72a7cc86bff98d1915b3c7818f87
 ```typescript
 const scriptInfo = btc.p2ms(2, keySets.map(keySet => keySet.pub))
 const scriptHashInfo = btc.p2wsh(scriptInfo)
-const script = toHex(scriptInfo.script)
-const scriptHash = toHex(scriptHashInfo.script)
+const script = hex.encode(scriptInfo.script)
+const scriptHash = hex.encode(scriptHashInfo.script)
 const address = scriptHashInfo.address
 ```
 
@@ -83,9 +82,9 @@ bc1qwnhzkn8wcyyrnfyfcp7555urssu5dq0rmnvg70hg02z3nxgg4f0qljmr2h
 
 ```typescript
 const leafScriptInfo = btc.p2tr_ms(2, keySets.map(k => k.schnorrPub))
-const leafScript = toHex(leafScriptInfo.script)
+const leafScript = hex.encode(leafScriptInfo.script)
 const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
-const script = toHex(scriptInfo.script)
+const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
 
@@ -106,9 +105,9 @@ bc1p6m2xevckax9zucumnnyvu4xhxem66ugc5r2zlw2a20s0hxnutl8qfef23s
 
 ```typescript
 const leafScriptInfo = btc.p2tr_ns(2, keySets.map(k => k.schnorrPub))
-const leafScripts = leafScriptInfo.map(s => toHex(s.script))
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
 const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
-const script = toHex(scriptInfo.script)
+const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
 
@@ -134,9 +133,9 @@ const leafScriptInfo = [
   btc.p2tr_pk(keySets[0].schnorrPub),
   btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])[0]
 ]
-const leafScripts = leafScriptInfo.map(s => toHex(s.script))
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
 const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
-const script = toHex(scriptInfo.script)
+const script = hex.encode(scriptInfo.script)
 const address = scriptInfo.address
 ```
 
