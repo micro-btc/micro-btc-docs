@@ -10,6 +10,9 @@
     },
     "multi-key": {
       "title": "Multi-Key Addresses"
+    },
+    "taproot-trees": {
+      "title": "Taproot Tree Addresses"
     }
   }
   

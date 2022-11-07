@@ -1,0 +1,77 @@
+# Taproot Multi-Leaf Addresses
+
+## Taproot Multi-Leaf: (A&B) or (A&C) or (B&C)
+
+### Code
+
+```typescript
+const leafScriptInfo = btc.p2tr_ns(2, keySets.map(k => k.schnorrPub))
+const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
+
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
+const script = hex.encode(scriptInfo.script)
+const address = scriptInfo.address
+```
+
+### Console
+
+```typescript
+> leafScripts.map(s => console.log(s))
+200101010101010101010101010101010101010101010101010101010101010101ad200202020202020202020202020202020202020202020202020202020202020202ac
+200101010101010101010101010101010101010101010101010101010101010101ad201212121212121212121212121212121212121212121212121212121212121212ac
+200202020202020202020202020202020202020202020202020202020202020202ad201212121212121212121212121212121212121212121212121212121212121212ac
+> console.log(script)
+5120cb138dcec0001e5ed66f4c0f8f6ddfc6875ca401620800c99947ffd621ca8d12
+> console.log(address)
+bc1pevfcmnkqqq09a4n0fs8c7mwlc6r4efqpvgyqpjvegllavgw235fq3kz7a0
+```
+
+## Taproot Multi-Leaf: A or (B&C)
+
+### Code
+
+```typescript
+const leafScriptInfo = [
+  btc.p2tr_pk(keySets[0].schnorrPub),
+  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])[0]
+]
+const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
+
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
+const script = hex.encode(scriptInfo.script)
+const address = scriptInfo.address
+```
+
+### Console
+
+```typescript
+> leafScripts.map(s => console.log(s))
+200101010101010101010101010101010101010101010101010101010101010101ac
+200202020202020202020202020202020202020202020202020202020202020202ad201212121212121212121212121212121212121212121212121212121212121212ac
+> console.log(script)
+512018505e0efa520aca611ed86166e3afa1fffacac761e22d02825d85429cdff404
+> console.log(address)
+bc1prpg9urh62g9v5cg7mpskdca058ll4jk8v83z6q5ztkz598xl7szqn2y4n7
+```
+
+## Taproot Public Key and Single-Leaf: A or (B&C)
+
+```typescript
+const leafScriptInfo = btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])
+const scriptInfo = btc.p2tr(keySets[0].schnorrPub, leafScriptInfo)
+
+const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
+const script = hex.encode(scriptInfo.script)
+const address = scriptInfo.address
+```
+
+### Console
+
+```typescript
+> leafScripts.map(s => console.log(s))
+200202020202020202020202020202020202020202020202020202020202020202ad201212121212121212121212121212121212121212121212121212121212121212ac
+> console.log(script)
+51202b4df29fb01b0850312697372cba575709403f8803256c718e3956f690772135
+> console.log(address)
+bc1p9dxl98asrvy9qvfxjumjewjh2uy5q0ugqvjkcuvw89t0dyrhyy6swy6yc8
+```

@@ -8,7 +8,7 @@ import * as secp from '@noble/secp256k1'
 import { hex } from '@scure/base' 
 ```
 
-## Key Sets for Testing
+## Keys for Testing
 
 ```typescript
 const keySets = [
@@ -76,7 +76,7 @@ const address = scriptHashInfo.address
 bc1qwnhzkn8wcyyrnfyfcp7555urssu5dq0rmnvg70hg02z3nxgg4f0qljmr2h
 ```
 
-## Taproot Single-Leaf: 2 of \{A, B, C\}
+## Taproot Single-Leaf Script Hash: 2 of \{A, B, C\}
 
 ### Code
 
@@ -97,56 +97,4 @@ const address = scriptInfo.address
 5120d6d46cb316e98a2e639b9cc8ce54d73677ad7118a0d42fb95d53e0fb9a7c5fce
 > console.log(address)
 bc1p6m2xevckax9zucumnnyvu4xhxem66ugc5r2zlw2a20s0hxnutl8qfef23s
-```
-
-## Taproot Multi-Leaf: (A&B) or (A&C) or (B&C)
-
-### Code
-
-```typescript
-const leafScriptInfo = btc.p2tr_ns(2, keySets.map(k => k.schnorrPub))
-const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
-const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
-const script = hex.encode(scriptInfo.script)
-const address = scriptInfo.address
-```
-
-### Console
-
-```typescript
-> leafScripts.map(s => console.log(s))
-200101010101010101010101010101010101010101010101010101010101010101ad200202020202020202020202020202020202020202020202020202020202020202ac
-200101010101010101010101010101010101010101010101010101010101010101ad201212121212121212121212121212121212121212121212121212121212121212ac
-200202020202020202020202020202020202020202020202020202020202020202ad201212121212121212121212121212121212121212121212121212121212121212ac
-> console.log(script)
-5120cb138dcec0001e5ed66f4c0f8f6ddfc6875ca401620800c99947ffd621ca8d12
-> console.log(address)
-bc1pevfcmnkqqq09a4n0fs8c7mwlc6r4efqpvgyqpjvegllavgw235fq3kz7a0
-```
-
-## Taproot Multi-Leaf: A or (B&C)
-
-### Code
-
-```typescript
-const leafScriptInfo = [
-  btc.p2tr_pk(keySets[0].schnorrPub),
-  btc.p2tr_ns(2, [keySets[1].schnorrPub, keySets[2].schnorrPub])[0]
-]
-const leafScripts = leafScriptInfo.map(s => hex.encode(s.script))
-const scriptInfo = btc.p2tr(undefined, leafScriptInfo)
-const script = hex.encode(scriptInfo.script)
-const address = scriptInfo.address
-```
-
-### Console
-
-```typescript
-> leafScripts.map(s => console.log(s))
-200101010101010101010101010101010101010101010101010101010101010101ac
-200202020202020202020202020202020202020202020202020202020202020202ad201212121212121212121212121212121212121212121212121212121212121212ac
-> console.log(script)
-512018505e0efa520aca611ed86166e3afa1fffacac761e22d02825d85429cdff404
-> console.log(address)
-bc1prpg9urh62g9v5cg7mpskdca058ll4jk8v83z6q5ztkz598xl7szqn2y4n7
 ```
