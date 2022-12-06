@@ -4,6 +4,8 @@ The team at `micro-btc` is excited to announce a contest to build awesome apps o
 
 We'll award a total of 2 Bitcoin to participants who (1) build Bitcoin apps using the `micro-btc` JavaScript/TypeScript library and (2) take advantage of the new capabilities of Taproot.
 
+## Competition Details
+
 ### Prizes:
 
 - First prize: 1 BTC
@@ -11,11 +13,14 @@ We'll award a total of 2 Bitcoin to participants who (1) build Bitcoin apps usin
 - Third prize: 0.2 BTC
 - Other prizes: 0.1 BTC
 
-### Time period:
+### Key Dates:
 
-- Start: January 1st, 2023
-- End: February 1st, 2023
+- Start of Competition: January 1st, 2023
+- End of Competition: February 1st, 2023
+- Winners Announced: February 15th, 2023
 - Expected time investment: 2+ weeks
+
+# FAQ
 
 ### What is micro-btc?
 
@@ -24,8 +29,9 @@ We'll award a total of 2 Bitcoin to participants who (1) build Bitcoin apps usin
 ### What are some examples of apps that could be built with micro-btc?
 
 - Bitcoin wallets
-  - A simple Taproot wallet with an excellent UI/UX
-  - A multi-sig Taproot wallet
+  - A mobile wallet with an excellent UI/UX and single-sig Taproot support
+  - A browser extension wallet with single-sig Taproot support
+  - A desktop wallet with multi-sig Taproot support
 - Taproot-enabled Games
   - Poker game (deposit Bitcoin to multi-sig, server authorizes payouts)
   - Chess game (deposit Bitcoin to multi-sig, server authorizes payouts)
@@ -34,5 +40,12 @@ We'll award a total of 2 Bitcoin to participants who (1) build Bitcoin apps usin
 - Integrations w/ Websites
   - Twitter tipping bot
   - Reddit tipping bot
-- Tools
-  - A collaborative signing app for Taproot multisig
+  - Discord tipping bot
+
+### Who will judge the competition?
+
+A panel of 3-5 judges will decide the winners of the competition. They will be announced during the competition.
+
+### Can I start building my app before the official start date?
+
+Yes, the competition officially begins on January 1st but you can start building your app at any time before that.
