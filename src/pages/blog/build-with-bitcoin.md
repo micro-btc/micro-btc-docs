@@ -20,7 +20,7 @@ We'll award a total of 2 Bitcoin to participants who (1) build Bitcoin apps usin
 - Winners Announced: February 15th, 2023
 - Expected time investment: 2+ weeks
 
-# FAQ
+## FAQ
 
 ### What is micro-btc?
 
