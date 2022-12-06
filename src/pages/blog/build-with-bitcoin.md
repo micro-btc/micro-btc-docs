@@ -44,7 +44,7 @@ We'll award a total of 2 Bitcoin to participants who (1) build Bitcoin apps usin
 
 ### Who will judge the competition?
 
-A panel of 3-5 judges will decide the winners of the competition. They will be announced during the competition.
+A panel of 3-5 judges will decide the winners of the competition. They will be announced in the coming weeks.
 
 ### Can I start building my app before the official start date?
 
