@@ -6,7 +6,7 @@ import { useConfig } from 'nextra-theme-docs'
  */
 export default {
   project: {
-    link: 'https://github.com/paulmillr/micro-btc-signer'
+    link: 'https://github.com/micro-btc/micro-btc'
   },
   search: {
     component: null
@@ -23,7 +23,7 @@ export default {
     text: <span>MIT {new Date().getFullYear()} © <a href="https://github.com/micro-btc" target="_blank">micro-btc</a></span>,
   },
   docsRepositoryBase:
-    'https://github.com/micro-btc/micro-btc-docs',
+    'https://github.com/micro-btc/micro-btc-docs/blob/master',
   editLink: {
     text: 'Edit this page on GitHub'
   },
